@@ -3,21 +3,26 @@ import {StyleSheet, Text, View, ScrollView, SafeAreaView} from 'react-native';
 import {useState} from "react";
 import ROSLIB from 'roslib'
 import LoginPage from "./component/master";
-import {Stack,useRouter} from 'expo-router'
+import {Stack, useRouter} from 'expo-router'
+import {COLORS} from "./constants";
 
 export default function App() {
-    const [status, setStatus] = useState("Not connected")
-    const [linear, setLinear] = useState({x: 0, y: 0, z: 0})
-    const [angular, setAngular] = useState({x: 0, y: 0, z: 0})
-    const ros = new ROSLIB.Ros({encoding: 'ascii'})
+
+    const router = useRouter();
 
     return (
-        <View style={styles.container}>
-            <Text>Open up App.js to start working on your app!</Text>
-            {/*<SendMessage/>*/}
-            <LoginPage/>
-            <StatusBar style="auto"/>
-        </View>
+        <SafeAreaView style={{flex: 1, background: COLORS.lightWhite}}>
+            <View style={styles.container}>
+                {/*<Stack.Screen*/}
+
+                {/*/>*/}
+                <Text>Open up App.js to start working on your app!</Text>
+                {/*/!*<SendMessage/>*!/*/}
+                {/*<LoginPage/>*/}
+                {/*<StatusBar style="auto"/>*/}
+            </View>
+        </SafeAreaView>
+
     );
 }
 

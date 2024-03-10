@@ -42,7 +42,7 @@ function LoginPage() {
 
     return (
         <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-            <Text>Open up App.js to start working on your app!</Text>
+            {/*<Text>Open up App.js to start working on your app!</Text>*/}
             <Text>{status}</Text>
 
             <Text>{message}</Text>
