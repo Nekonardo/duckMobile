@@ -5,11 +5,13 @@ import {Button, Text, View} from 'react-native';
 function LoginPage() {
     const [status, setStatus] = useState("Not connected")
     const [message, setMessage] = useState("No message")
+
     const ros = new ROSLIB.Ros({encoding: 'ascii'})
 
 
     function connect() {
-        ros.connect("ws://ubuntu.local:9090")
+        // ros.connect("ws://ubuntu.local:9090")
+        ros.connect("ws://coolduck.local:9001")
         ros.on('error', function (error) {
             console.log(error)
             setStatus(error)

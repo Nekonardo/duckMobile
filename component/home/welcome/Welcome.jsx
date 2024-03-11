@@ -5,9 +5,11 @@ import {useRouter} from "expo-router";
 import styles from "./welcome.style";
 import {icons, SIZES} from "../../../constants";
 import {Canvas} from "@react-three/fiber";
+import LoginPage from "../../master";
+import Map from "../../map";
 
 
-const NodeTypes = ["Device Status", "Feature 1", "Feature 2", "Feature 3", "Feature 4"];
+const NodeTypes = ["Device Status", "Map", "Feature 2", "Feature 3", "Feature 4"];
 
 function Box(props) {
     return (
@@ -26,42 +28,32 @@ const Welcome = ({loginInfo, setLoginInfo, handleClick}) => {
         switch (activeFunctionType) {
             case "Device Status":
                 return (
-                    // <View style={styles.tabsContainer}>
-                    //     <Text style={styles.headText}>Device Status</Text>
-                    //     <LoginPage/>
-                    //
-                    // </View>
-                    <>
-                        {/*<Text>nice</Text>*/}
-                        {/*<Canvas width="150" height="150">*/}
-                        {/*    <ambientLight/>*/}
-                        {/*    <sphereGeometry/>*/}
-                        {/*    <pointLight position={[10, 10, 10]}/>*/}
-                        {/*    <mesh>*/}
+                    <View style={styles.tabsContainer}>
+                        <Text style={styles.headText}>Device Status</Text>
+                        <LoginPage/>
 
-                        {/*        <meshStandardMaterial color="orange"/>*/}
-                        {/*        <Box position={[0, -1.2, 0]}/>*/}
-                        {/*        <Box position={[0, 1.2, 0]}/>*/}
-                        {/*    </mesh>*/}
-                        {/*</Canvas>*/}
-                    </>
+                        {/*// <>*/}
+
+                        {/*/!*<Canvas width="150" height="150">*!/*/}
+                        {/*/!*    <ambientLight/>*!/*/}
+                        {/*/!*    <sphereGeometry/>*!/*/}
+                        {/*/!*    <pointLight position={[10, 10, 10]}/>*!/*/}
+                        {/*/!*    <mesh>*!/*/}
+
+                        {/*/!*        <meshStandardMaterial color="orange"/>*!/*/}
+                        {/*/!*        <Box position={[0, -1.2, 0]}/>*!/*/}
+                        {/*/!*        <Box position={[0, 1.2, 0]}/>*!/*/}
+                        {/*/!*    </mesh>*!/*/}
+                        {/*/!*</Canvas>*!/*/}
+                        {/*// </>*/}
+                    </View>
+
                 );
-            case "Feature 1":
+            case "Map":
                 return (
                     <View style={styles.tabsContainer}>
                         <Text style={styles.tabText}>Feature 1</Text>
-
-                        <Canvas>
-                            <ambientLight/>
-                            <sphereGeometry/>
-                            <pointLight position={[10, 10, 10]}/>
-                            <mesh>
-
-                                <meshStandardMaterial color="orange"/>
-                                <Box position={[0, -1.2, 0]}/>
-                                <Box position={[0, 1.2, 0]}/>
-                            </mesh>
-                        </Canvas>
+                        <Map></Map>
 
                     </View>
                 );
@@ -108,14 +100,14 @@ const Welcome = ({loginInfo, setLoginInfo, handleClick}) => {
                         placeholder='localhost:8080'
                     />
                 </View>
-                <View style={styles.searchWrapper}>
-                    <TextInput
-                        style={styles.searchInput}
-                        value={loginInfo}
-                        onChangeText={(text) => setLoginInfo(text)}
-                        placeholder='password'
-                    />
-                </View>
+                {/*<View style={styles.searchWrapper}>*/}
+                {/*    <TextInput*/}
+                {/*        style={styles.searchInput}*/}
+                {/*        value={loginInfo}*/}
+                {/*        onChangeText={(text) => setLoginInfo(text)}*/}
+                {/*        placeholder='password'*/}
+                {/*    />*/}
+                {/*</View>*/}
 
                 <TouchableOpacity style={styles.searchBtn} onPress={handleClick}>
                     <Image
