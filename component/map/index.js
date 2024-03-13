@@ -5,6 +5,7 @@ import DrawPath from "./DrawPath";
 import React, {useEffect} from 'react';
 import ROSLIB from "roslib";
 import {useState} from "react";
+import {Image} from "react-native-svg";
 
 
 const deviceWidth = Dimensions.get('window').width;
@@ -36,8 +37,8 @@ function convertStringToList(inputString) {
 const Map = () => {
 
     const [status, setStatus] = useState("Not connected")
-    const [message, setMessage] = useState("No message")
-    const [list, setList] = useState([{x: 0, y: 0, direction: 0}])
+    const [message, setMessage] = useState("[{x: 0, y: 0, direction: 0}]!")
+    const [list, setList] = useState([{x: 0, y: 0, direction: 0},{x: 1, y: 1, direction: 0}])
 
     const ros = new ROSLIB.Ros({encoding: 'ascii'})
 
@@ -74,6 +75,7 @@ const Map = () => {
         // listener.unsubscribe();
     });
 
+    //sample data
     // const string =
     // "[(0.0, 0.0), (0.311785617576267, 0.0),\n" +
     // "(0.7794638453586629, 0.00043098143749590874),\n" +
@@ -89,37 +91,61 @@ const Map = () => {
         setList(processedList);
     }, [message])
     //
-    // let list1 = [
-    //     {
-    //         x: 0,
-    //         y: 0,
-    //         direction: 100
-    //     },
-    //     {
-    //         x: 50,
-    //         y: 0,
-    //         direction: 100
-    //     },
-    //     {
-    //         x: 300,
-    //         y: 0,
-    //         direction: 0
-    //     },
-    //     {
-    //         x: 300,
-    //         y: 250,
-    //         direction: 90
-    //     },
-    //     {
-    //         x: -300,
-    //         y: 250,
-    //         direction: undefined
-    //     },  {
-    //         x: -300,
-    //         y: 0,
-    //         direction: undefined
-    //     }
-    // ]
+    let list1 = [[
+        {
+            x: 0,
+            y: 0,
+            direction: 100
+        },
+        {
+            x: 50,
+            y: 0,
+            direction: 100
+        },
+        {
+            x: 300,
+            y: 0,
+            direction: 0
+        },
+        {
+            x: 300,
+            y: 250,
+            direction: 90
+        },
+        {
+            x: -300,
+            y: 250,
+            direction: undefined
+        },  {
+            x: -300,
+            y: 0,
+            direction: undefined
+        }
+    ],[{
+        x: 0,
+        y: 0,
+        direction: 100
+    },{
+        x: 10,
+        y: 0,
+        direction: 100
+    },{
+        x: 20,
+        y: 30,
+        direction: 0
+    },{
+        x: 100,
+        y: 100,
+        direction: 90
+    },{
+        x: 150,
+        y: 250,
+        direction: undefined
+    }, {
+        x: -300,
+        y: 0,
+        direction: undefined
+    }]];
     return (
         <View style={styles.container} ref={(view) => this.myView = view}>
             <Text>{status}</Text>
@@ -132,6 +158,9 @@ const Map = () => {
             {/*    </Text>*/}
             {/*))}*/}
             <DrawPath data={list}></DrawPath>
+
+
+
         </View>
     );
 };
