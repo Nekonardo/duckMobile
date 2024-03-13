@@ -5,6 +5,7 @@ import ROSLIB from 'roslib'
 import LoginPage from "./component/master";
 import {Stack, useRouter} from 'expo-router'
 import {COLORS} from "./constants";
+import ControlPad from "./component/control";
 
 export default function App() {
 
@@ -21,7 +22,9 @@ export default function App() {
                 {/*<LoginPage/>*/}
                 {/*<StatusBar style="auto"/>*/}
             </View>
+
         </SafeAreaView>
+
 
     );
 }

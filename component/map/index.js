@@ -13,6 +13,15 @@ const deviceHeight = Dimensions.get('window').height;
 const remainingHeight = deviceHeight - 300;
 
 
+function splitStringByTripleAt(str) {
+    // 使用split方法以@@@为分隔符将字符串分割成数组
+    const parts = str.split("@@@");
+
+    // 返回分割后的数组
+    return parts;
+}
+
+
 function convertStringToList(inputString) {
     // Trim the input string to remove leading and trailing spaces and the exclamation mark
     const trimmedString = inputString.trim().slice(1, -2);
@@ -37,15 +46,17 @@ function convertStringToList(inputString) {
 const Map = () => {
 
     const [status, setStatus] = useState("Not connected")
-    const [message, setMessage] = useState("[{x: 0, y: 0, direction: 0}]!")
-    const [list, setList] = useState([{x: 0, y: 0, direction: 0},{x: 1, y: 1, direction: 0}])
+    const [message, setMessage] = useState("[(0, 0)]!@@@[(0, 1)]!")
+    const [list, setList] = useState([[{x: 0, y: 0, direction: 0},{x: 0, y: 1, direction: 0}],
+        [{x: 0, y: 0, direction: 0},{x: 1, y: 1, direction: 0}]])
 
     const ros = new ROSLIB.Ros({encoding: 'ascii'})
 
 
     function connect() {
         // ros.connect("ws://ubuntu.local:9090")
-        ros.connect("ws://coolduck.local:9001")
+        // ros.connect("ws://coolduck.local:9001")
+        ros.connect("ws://y33tb0t.local:9001")
         ros.on('error', function (error) {
             console.log(error)
             setStatus(error)
@@ -87,65 +98,69 @@ const Map = () => {
     // "(1.949674147434936, 0.004600548944687392)]!"
 
     useEffect(() => {
-        const processedList = convertStringToList(message);
+        const processedList = splitStringByTripleAt(message).map(convertStringToList);
         setList(processedList);
     }, [message])
     //
-    let list1 = [[
-        {
-            x: 0,
-            y: 0,
-            direction: 100
-        },
-        {
-            x: 50,
-            y: 0,
-            direction: 100
-        },
-        {
-            x: 300,
-            y: 0,
-            direction: 0
-        },
-        {
-            x: 300,
-            y: 250,
-            direction: 90
-        },
-        {
-            x: -300,
-            y: 250,
-            direction: undefined
-        },  {
-            x: -300,
-            y: 0,
-            direction: undefined
-        }
-    ],[{
-        x: 0,
-        y: 0,
-        direction: 100
-    },{
-        x: 10,
-        y: 0,
-        direction: 100
-    },{
-        x: 20,
-        y: 30,
-        direction: 0
-    },{
-        x: 100,
-        y: 100,
-        direction: 90
-    },{
-        x: 150,
-        y: 250,
-        direction: undefined
-    }, {
-        x: -300,
-        y: 0,
-        direction: undefined
-    }]];
+    // let list1 = [[
+    //     {
+    //         x: 0,
+    //         y: 0,
+    //         direction: 100
+    //     },
+    //     {
+    //         x: 50,
+    //         y: 0,
+    //         direction: 100
+    //     },
+    //     {
+    //         x: 300,
+    //         y: 0,
+    //         direction: 0
+    //     },
+    //     {
+    //         x: 300,
+    //         y: 250,
+    //         direction: 90
+    //     },
+    //     {
+    //         x: -300,
+    //         y: 250,
+    //         direction: undefined
+    //     },  {
+    //         x: -300,
+    //         y: 0,
+    //         direction: undefined
+    //     }
+    // ],[{
+    //     x: 0,
+    //     y: 0,
+    //     direction: 100
+    // },{
+    //     x: 10,
+    //     y: 0,
+    //     direction: 100
+    // },{
+    //     x: 20,
+    //     y: 30,
+    //     direction: 0
+    // },{
+    //     x: 100,
+    //     y: 100,
+    //     direction: 90
+    // },{
+    //     x: 150,
+    //     y: 250,
+    //     direction: undefined
+    // }, {
+    //     x: -300,
+    //     y: 0,
+    //     direction: undefined
+    // }]];
+
+    const l2 = [[{x: 0, y: 0, direction: 0},{x: 0, y: 100, direction: 0}],
+        [{x: 0, y: 0, direction: 0},{x: 100, y: 100, direction: 0}]]
+
     return (
         <View style={styles.container} ref={(view) => this.myView = view}>
             <Text>{status}</Text>
@@ -205,7 +220,7 @@ export default Map;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        // backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 20,

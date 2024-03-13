@@ -50,82 +50,84 @@ function calculateAngle(x1, y1, x2, y2) {
 export default function DrawPath({data}) {
 
 
-    if (isNaN(data)) {
-            data = [[
-                {
-                    x: 0,
-                    y: 0,
-                    direction: 100
-                },
-                {
-                    x: 50,
-                    y: 0,
-                    direction: 100
-                },
-                {
-                    x: 300,
-                    y: 0,
-                    direction: 0
-                },
-                {
-                    x: 300,
-                    y: 250,
-                    direction: 90
-                },
-                {
-                    x: -300,
-                    y: 250,
-                    direction: undefined
-                },  {
-                    x: -300,
-                    y: 0,
-                    direction: undefined
-                }
-            ],[{
-                x: 0,
-                y: 0,
-                direction: 100
-            },{
-                x: 10,
-                y: 0,
-                direction: 100
-            },{
-                x: 20,
-                y: 30,
-                direction: 0
-            },{
-                x: 100,
-                y: 100,
-                direction: 90
-            },{
-                x: 150,
-                y: 250,
-                direction: undefined
-            }, {
-                x: 150,
-                y: 0,
-                direction: undefined
-            }]];
-    }
+
+    // if (isNaN(data)) {
+    //     data = [[{x: 0, y: 0, direction: 0},{x: 10,y:150,direction: 0}], [{x: 100, y: 100, direction: 0}]];
+    //         // data = [[
+    //         //     {
+    //         //         x: 0,
+    //         //         y: 0,
+    //         //         direction: 100
+    //         //     },
+    //         //     {
+    //         //         x: 50,
+    //         //         y: 0,
+    //         //         direction: 100
+    //         //     },
+    //         //     {
+    //         //         x: 300,
+    //         //         y: 0,
+    //         //         direction: 0
+    //         //     },
+    //         //     {
+    //         //         x: 300,
+    //         //         y: 250,
+    //         //         direction: 90
+    //         //     },
+    //         //     {
+    //         //         x: -300,
+    //         //         y: 250,
+    //         //         direction: undefined
+    //         //     },  {
+    //         //         x: -300,
+    //         //         y: 0,
+    //         //         direction: undefined
+    //         //     }
+    //         // ],[{
+    //         //     x: 0,
+    //         //     y: 0,
+    //         //     direction: 100
+    //         // },{
+    //         //     x: 10,
+    //         //     y: 0,
+    //         //     direction: 100
+    //         // },{
+    //         //     x: 20,
+    //         //     y: 30,
+    //         //     direction: 0
+    //         // },{
+    //         //     x: 100,
+    //         //     y: 100,
+    //         //     direction: 90
+    //         // },{
+    //         //     x: 150,
+    //         //     y: 250,
+    //         //     direction: undefined
+    //         // }, {
+    //         //     x: 150,
+    //         //     y: 0,
+    //         //     direction: undefined
+    //         // }]];
+    // }
     // if (isNaN(data[data.length - 1]) || isNaN(data[data.length - 1]) || data[data.length - 1].x === undefined || data[data.length - 1].y === undefined) {
     //     data = [{x: 0, y: 0, direction: 0}];
     //     return  <Text>"222"</Text>;
     // }
-    let factorX = 0.8
-    let factorY = 0.4
+    let factorX = 0.5
+    let factorY = 0.5
     // let factorX = 8
     // let factorY = 4
 
 
     let data0 = data[0].map((item) => {
-        return {x: item.y * factorX + 25, y: item.x * factorY + 150};
+        return {x: item.y * factorX + 160, y: item.x * factorY + 240};
     });
     if ((data0.length > 1) && (data0[data0.length - 1].direction === undefined)) {
         data0[data0.length - 1].direction = calculateAngle(data0[data0.length - 2].x, data0[data0.length - 2].y, data0[data0.length - 1].x, data0[data0.length - 1].y) + 90;
     }
 
     let data1 = data[1].map((item) => {
-        return {x: item.y * factorX + 25, y: item.x * factorY + 150};
+        return {x: item.y * factorX + 160, y: item.x * factorY + 240};
     });
     if ((data1.length > 1) && (data1[data1.length - 1].direction === undefined)) {
         data1[data1.length - 1].direction = calculateAngle(data1[data1.length - 2].x, data1[data1.length - 2].y, data1[data1.length - 1].x, data1[data1.length - 1].y) + 90;
@@ -165,26 +167,26 @@ export default function DrawPath({data}) {
                         />
                     );
                 })}
-                {data0.map((item, i) => {
-                    let e;
-                    if (lastPoint) {
-                        e = (
-                            <Line
-                                key={i + "line"}
-                                x1={lastPoint.x}
-                                y1={lastPoint.y}
-                                x2={item.x}
-                                y2={item.y}
-                                stroke="#fff"
-                                strokeWidth="1"
-                            />
-                        );
-                    } else {
-                        e = <></>;
-                    }
-                    lastPoint = item;
-                    return e;
-                })}
+                {/*{data0.map((item, i) => {*/}
+                {/*    let e;*/}
+                {/*    if (lastPoint) {*/}
+                {/*        e = (*/}
+                {/*            <Line*/}
+                {/*                key={i + "line"}*/}
+                {/*                x1={lastPoint.x}*/}
+                {/*                y1={lastPoint.y}*/}
+                {/*                x2={item.x}*/}
+                {/*                y2={item.y}*/}
+                {/*                stroke="#fff"*/}
+                {/*                strokeWidth="1"*/}
+                {/*            />*/}
+                {/*        );*/}
+                {/*    } else {*/}
+                {/*        e = <></>;*/}
+                {/*    }*/}
+                {/*    lastPoint = item;*/}
+                {/*    return e;*/}
+                {/*})}*/}
 
                 {/*//*/}
                 {data1.slice(0, -1).map((item, i) => {
@@ -193,8 +195,9 @@ export default function DrawPath({data}) {
                             key={i + "rect"}
                             x={item.x - 2.5}
                             y={item.y - 2.5}
-                            opacity="0.5"
-
+                            // opacity="0.5"
+                            // rotation="30"
+                            // origin={(item.x - 2.5)+ "," + (item.y - 2.5)}
                             width={2.5}
                             height={2.5}
                             stroke="#33FFCC"
@@ -203,26 +206,26 @@ export default function DrawPath({data}) {
                         />
                     );
                 })}
-                {data1.map((item, i) => {
-                    let e;
-                    if (lastPoint) {
-                        e = (
-                            <Line
-                                key={i + "line"}
-                                x1={lastPoint.x}
-                                y1={lastPoint.y}
-                                x2={item.x}
-                                y2={item.y}
-                                stroke="#33FFCC"
-                                strokeWidth="1"
-                            />
-                        );
-                    } else {
-                        e = <></>;
-                    }
-                    lastPoint = item;
-                    return e;
-                })}
+                {/*{data1.map((item, i) => {*/}
+                {/*    let e;*/}
+                {/*    if (lastPoint) {*/}
+                {/*        e = (*/}
+                {/*            <Line*/}
+                {/*                key={i + "line"}*/}
+                {/*                x1={lastPoint.x}*/}
+                {/*                y1={lastPoint.y}*/}
+                {/*                x2={item.x}*/}
+                {/*                y2={item.y}*/}
+                {/*                stroke="#33FFCC"*/}
+                {/*                strokeWidth="1"*/}
+                {/*            />*/}
+                {/*        );*/}
+                {/*    } else {*/}
+                {/*        e = <></>;*/}
+                {/*    }*/}
+                {/*    lastPoint = item;*/}
+                {/*    return e;*/}
+                {/*})}*/}
 
                 <Polygon
                     rotation={carPoint.direction}
@@ -241,7 +244,7 @@ export default function DrawPath({data}) {
                 <Line x1={"100%"} y1={"100%"} x2={0} y2={"100%"} stroke="#fff" strokeWidth="1"/>
             </Svg>
             {/*<Text style={{ color: "#fff", position: "absolute", x: 60, y: 60 }}>*/}
-
+            {/*console.log("data0", data0);*/}
             {/*</Text>*/}
             {/*<Text>y</Text>*/}
         </View>

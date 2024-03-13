@@ -7,9 +7,10 @@ import {icons, SIZES} from "../../../constants";
 import {Canvas} from "@react-three/fiber";
 import LoginPage from "../../master";
 import Map from "../../map";
+import ControlPad from "../../control";
 
 
-const NodeTypes = ["Device Status", "Map", "Feature 2", "Feature 3", "Feature 4"];
+const NodeTypes = ["Device Status", "Map", "Joystick", "SSH", "Camera"];
 
 function Box(props) {
     return (
@@ -52,27 +53,31 @@ const Welcome = ({loginInfo, setLoginInfo, handleClick}) => {
             case "Map":
                 return (
                     <View style={styles.tabsContainer}>
-                        <Text style={styles.tabText}>Feature 1</Text>
+                        <Text style={styles.headText}>Map</Text>
+
+                        {/*<Text style={styles.tabText}>Feature 1</Text>*/}
                         <Map></Map>
 
                     </View>
                 );
-            case "Feature 2":
+            case "Joystick":
                 return (
                     <View style={styles.tabsContainer}>
-                        <Text style={styles.tabText}>Feature 2</Text>
+                        <Text style={styles.headText}>Joystick</Text>
+                        <ControlPad></ControlPad>
+
                     </View>
                 );
-            case "Feature 3":
+            case "SSH":
                 return (
                     <View style={styles.tabsContainer}>
-                        <Text style={styles.tabText}>Feature 3</Text>
+                        <Text style={styles.headText}>SSH</Text>
                     </View>
                 );
-            case "Feature 4":
+            case "Camera":
                 return (
                     <View style={styles.tabsContainer}>
-                        <Text style={styles.tabText}>Feature 4</Text>
+                        <Text style={styles.headText}>Camera</Text>
                     </View>
                 );
             default:
