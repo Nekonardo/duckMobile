@@ -52,62 +52,62 @@ export default function DrawPath({data}) {
 
 
     // if (isNaN(data)) {
-    //     data = [[{x: 0, y: 0, direction: 0},{x: 10,y:150,direction: 0}], [{x: 100, y: 100, direction: 0}]];
-    //         // data = [[
-    //         //     {
-    //         //         x: 0,
-    //         //         y: 0,
-    //         //         direction: 100
-    //         //     },
-    //         //     {
-    //         //         x: 50,
-    //         //         y: 0,
-    //         //         direction: 100
-    //         //     },
-    //         //     {
-    //         //         x: 300,
-    //         //         y: 0,
-    //         //         direction: 0
-    //         //     },
-    //         //     {
-    //         //         x: 300,
-    //         //         y: 250,
-    //         //         direction: 90
-    //         //     },
-    //         //     {
-    //         //         x: -300,
-    //         //         y: 250,
-    //         //         direction: undefined
-    //         //     },  {
-    //         //         x: -300,
-    //         //         y: 0,
-    //         //         direction: undefined
-    //         //     }
-    //         // ],[{
-    //         //     x: 0,
-    //         //     y: 0,
-    //         //     direction: 100
-    //         // },{
-    //         //     x: 10,
-    //         //     y: 0,
-    //         //     direction: 100
-    //         // },{
-    //         //     x: 20,
-    //         //     y: 30,
-    //         //     direction: 0
-    //         // },{
-    //         //     x: 100,
-    //         //     y: 100,
-    //         //     direction: 90
-    //         // },{
-    //         //     x: 150,
-    //         //     y: 250,
-    //         //     direction: undefined
-    //         // }, {
-    //         //     x: 150,
-    //         //     y: 0,
-    //         //     direction: undefined
-    //         // }]];
+        // data = [[{x: 0, y: 0, direction: 0},{x: 10,y:150,direction: 0}], [{x: 100, y: 100, direction: 0}]];
+        //     data = [[
+        //         {
+        //             x: 0,
+        //             y: 0,
+        //             direction: 100
+        //         },
+        //         {
+        //             x: 50,
+        //             y: 70,
+        //             direction: 100
+        //         },
+        //         {
+        //             x: 60,
+        //             y: 90,
+        //             direction: 0
+        //         },
+        //         {
+        //             x: 90,
+        //             y: 100,
+        //             direction: 90
+        //         },
+        //         {
+        //             x: 130,
+        //             y: 200,
+        //             direction: undefined
+        //         },  {
+        //             x: 150,
+        //             y: 70,
+        //             direction: undefined
+        //         }
+        //     ],[{
+        //         x: 0,
+        //         y: 0,
+        //         direction: 100
+        //     },{
+        //         x: 10,
+        //         y: 0,
+        //         direction: 100
+        //     },{
+        //         x: 20,
+        //         y: 30,
+        //         direction: 0
+        //     },{
+        //         x: 100,
+        //         y: 100,
+        //         direction: 90
+        //     },{
+        //         x: 150,
+        //         y: 250,
+        //         direction: undefined
+        //     }, {
+        //         x: 150,
+        //         y: 70,
+        //         direction: undefined
+        //     }]];
     // }
     // if (isNaN(data[data.length - 1]) || isNaN(data[data.length - 1]) || data[data.length - 1].x === undefined || data[data.length - 1].y === undefined) {
     //     data = [{x: 0, y: 0, direction: 0}];
@@ -115,6 +115,8 @@ export default function DrawPath({data}) {
     // }
     let factorX = 1
     let factorY = 1
+    // let factorX = 0.5
+    // let factorY = 0.5
     // let factorX = 8
     // let factorY = 4
 

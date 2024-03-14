@@ -17,7 +17,7 @@ function SendMessage() {
         }
 
     function connect() {
-      ros.connect("ws://ubuntu.local:9090")
+      ros.connect("ws://coolduck.local:9001")
       // won't let the user connect more than once
       ros.on('error', function (error) {
         console.log(error)
@@ -43,7 +43,8 @@ function SendMessage() {
     const cmdVel = new ROSLIB.Topic({
       ros: ros,
       name: "pose_topic",
-      messageType: "geometry_msgs/Pose2D"
+      // messageType: "geometry_msgs/Pose2D"
+      messageType: "/coolduck/pose_topic"
     })
 
     const data = new ROSLIB.Message({

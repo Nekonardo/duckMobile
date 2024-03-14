@@ -10,9 +10,10 @@ import Map from "../../map";
 import ControlPad from "../../control";
 import filter from "../../../assets/icons/filter.png";
 import chevronRight from "../../../assets/icons/chevron-right.png";
+import SendMessage from "../../example_functions";
 
 
-const NodeTypes = ["Device Status", "Map", "Joystick", "SSH", "Camera"];
+const NodeTypes = ["Device Status", "Map", "Joystick"];
 
 
 const Menu = ({loginInfo, setLoginInfo, handleClick}) => {
@@ -60,6 +61,7 @@ const Menu = ({loginInfo, setLoginInfo, handleClick}) => {
                         <Text style={styles.headText}>Joystick</Text>
                         <ControlPad></ControlPad>
 
+                        {/*<SendMessage/>*/}
                     </View>
                 );
             case "SSH":
