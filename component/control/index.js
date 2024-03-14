@@ -33,7 +33,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { ReactNativeJoystick } from "@korsolutions/react-native-joystick";
 import React from 'react';
 import {StyleSheet, View} from "react-native";
-// import styles from "../home/welcome/welcome.style";
+// import styles from "../home/mainMenu/mainMenu.style";
 
 
 

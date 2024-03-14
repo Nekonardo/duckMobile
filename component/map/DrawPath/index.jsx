@@ -113,21 +113,21 @@ export default function DrawPath({data}) {
     //     data = [{x: 0, y: 0, direction: 0}];
     //     return  <Text>"222"</Text>;
     // }
-    let factorX = 0.5
-    let factorY = 0.5
+    let factorX = 1
+    let factorY = 1
     // let factorX = 8
     // let factorY = 4
 
 
     let data0 = data[0].map((item) => {
-        return {x: item.y * factorX + 160, y: item.x * factorY + 240};
+        return {x: item.y * factorX + 260, y: item.x * factorY + 240};
     });
     if ((data0.length > 1) && (data0[data0.length - 1].direction === undefined)) {
         data0[data0.length - 1].direction = calculateAngle(data0[data0.length - 2].x, data0[data0.length - 2].y, data0[data0.length - 1].x, data0[data0.length - 1].y) + 90;
     }
 
     let data1 = data[1].map((item) => {
-        return {x: item.y * factorX + 160, y: item.x * factorY + 240};
+        return {x: item.y * factorX + 260, y: item.x * factorY + 240};
     });
     if ((data1.length > 1) && (data1[data1.length - 1].direction === undefined)) {
         data1[data1.length - 1].direction = calculateAngle(data1[data1.length - 2].x, data1[data1.length - 2].y, data1[data1.length - 1].x, data1[data1.length - 1].y) + 90;

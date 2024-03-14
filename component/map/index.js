@@ -55,8 +55,8 @@ const Map = () => {
 
     function connect() {
         // ros.connect("ws://ubuntu.local:9090")
-        // ros.connect("ws://coolduck.local:9001")
-        ros.connect("ws://y33tb0t.local:9001")
+        ros.connect("ws://coolduck.local:9001")
+        // ros.connect("ws://y33tb0t.local:9001")
         ros.on('error', function (error) {
             console.log(error)
             setStatus(error)

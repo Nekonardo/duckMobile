@@ -3,7 +3,7 @@ import {SafeAreaView} from "react-native";
 import {Stack, useRouter} from "expo-router";
 import {COLORS, SIZES, FONT, SHADOWS} from "../constants";
 import {ScrollView} from "react-native";
-import Welcome from "../component/home/welcome/Welcome";
+import Menu from "../component/home/mainMenu/Menu";
 import {Canvas} from "@react-three/fiber/native";
 
 import {useState} from "react";
@@ -28,7 +28,7 @@ const Home = () => {
                         flex: 1,
                         padding: SIZES.medium}}>
                         {/*<Text>Open up App.js to start working on your app!</Text>*/}
-                    <Welcome/>
+                    <Menu/>
                     </View>
             </ScrollView>
         </SafeAreaView>

@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
-import ROSLIB from 'roslib'
-import {Button, Text, View} from 'react-native';
+import React from 'react';
+import {View} from "react-native";
+import {useState} from "@types/react";
+import ROSLIB from "roslib";
 
-function LoginPage() {
+const Camera = () => {
     const [status, setStatus] = useState("Not connected")
     const [message, setMessage] = useState("No message")
 
@@ -14,7 +15,7 @@ function LoginPage() {
         ros.connect("ws://coolduck.local:9001")
         ros.on('error', function (error) {
             console.log(error)
-            setStatus("error")
+            setStatus(error)
         })
 
         // Find out exactly when we made a connection.
@@ -41,19 +42,11 @@ function LoginPage() {
         // listener.unsubscribe();
     });
 
-
     return (
-        <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-            {/*<Text>Open up App.js to start working on your app!</Text>*/}
-            <Text>{status}</Text>
+       <View>
 
-            <Text>{message}</Text>
+       </View>
+    );
+};
 
-            <Button title="Connect" onPress={connect}/>
-        </View>
-
-
-    )
-}
-
-export default LoginPage
+export default Camera;

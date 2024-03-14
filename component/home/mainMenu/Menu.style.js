@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     width: "50%",
     height: "50%",
     tintColor: COLORS.white,
+    transform: [{ rotate: '180deg' }]
   },
   tabsContainer: {
     width: "100%",

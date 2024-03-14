@@ -2,26 +2,20 @@ import {useState} from "react";
 import {FlatList, Image, Text, TextInput, TouchableOpacity, View,} from "react-native";
 import {useRouter} from "expo-router";
 
-import styles from "./welcome.style";
+import styles from "./Menu.style";
 import {icons, SIZES} from "../../../constants";
 import {Canvas} from "@react-three/fiber";
 import LoginPage from "../../master";
 import Map from "../../map";
 import ControlPad from "../../control";
+import filter from "../../../assets/icons/filter.png";
+import chevronRight from "../../../assets/icons/chevron-right.png";
 
 
 const NodeTypes = ["Device Status", "Map", "Joystick", "SSH", "Camera"];
 
-function Box(props) {
-    return (
-        <mesh {...props}>
-            <boxGeometry args={[1, 1, 1]}/>
-            <meshStandardMaterial color={'orange'}/>
-        </mesh>
-    );
-}
 
-const Welcome = ({loginInfo, setLoginInfo, handleClick}) => {
+const Menu = ({loginInfo, setLoginInfo, handleClick}) => {
     const router = useRouter();
     const [activeFunctionType, setActiveFunctionType] = useState("Device Status");
 
@@ -116,7 +110,8 @@ const Welcome = ({loginInfo, setLoginInfo, handleClick}) => {
 
                 <TouchableOpacity style={styles.searchBtn} onPress={handleClick}>
                     <Image
-                        source={icons.search}
+                        source={icons.left}
+
                         resizeMode='contain'
                         style={styles.searchBtnImage}
                     />
@@ -163,4 +158,4 @@ const Welcome = ({loginInfo, setLoginInfo, handleClick}) => {
     );
 };
 
-export default Welcome;
+export default Menu;
